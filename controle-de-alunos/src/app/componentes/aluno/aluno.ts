@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AlunoInterface } from '../../interfaces/AlunoInterface';
 
 @Component({
   selector: 'app-aluno',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './aluno.css'
 })
 export class Aluno {
-codigo: number = 69
-nome: string = "Jack Beagle"
-curso: string = "Super foda Dev JAVA"
+  //Criando objeto
+  @Input()
+  aluno!: AlunoInterface 
 }
