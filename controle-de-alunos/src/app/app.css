@@ -4,9 +4,21 @@ header,footer{
   text-align: center;
   color: white;
 }
-main{
-  padding: 20px;
+.cards{
   display: flex;
   justify-content: center;
-  
+  background-color: aliceblue;
+}
+.tabela{
+  width: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+main{
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  display: flex;
 }

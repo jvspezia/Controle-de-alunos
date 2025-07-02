@@ -1,4 +1,5 @@
 export interface AlunoInterface{
+  foto?: string
   codigo: number
   matricula:number 
   nome:string

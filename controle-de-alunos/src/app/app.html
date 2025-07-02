@@ -4,11 +4,20 @@
 
 
 <main>
-  <app-aluno [aluno]="listaAlunos[0]"></app-aluno>
-  <app-aluno [aluno]="listaAlunos[1]"></app-aluno>
-  <app-aluno [aluno]="listaAlunos[2]"></app-aluno>
-</main>
+  <section class="cards">
 
-  <footer>
-    <h2>Desenvolvido por João Vitor Spezia</h2>
-  </footer>
+    <app-aluno [aluno]="listaAlunos[0]"></app-aluno>
+    <app-aluno [aluno]="listaAlunos[1]"></app-aluno>
+    <app-aluno [aluno]="listaAlunos[2]"></app-aluno>
+  </section>
+  
+  <section class="tabela">
+    <app-lista-aluno [lista]="listaAlunos" ></app-lista-aluno>
+  </section>
+  
+</main>
+>
+
+<footer>
+  <h2>Desenvolvido por João Vitor Spezia</h2>
+</footer>

@@ -12,23 +12,36 @@ export class App {
   
   listaAlunos: AlunoInterface[] = [
     {
-      codigo: 1,
+      foto:"../../../assets/img/Reiner_Braun_29_character_image_29.jpg",
+      codigo: 15674,
       matricula: 1,
       nome: 'João Vitor Spezia',
-      email: 'joaovitorspezia13891@gmail.com',
+      email: 'joaovitorspezia@gmail.com',
       cadastro: false,
       cursos: [
         'Java ', 'JS'
       ]
     },
     {
-      codigo: 2,
-      matricula: 2,
+      foto: "../../../assets/img/Jack.jpg",
+      codigo: 2345,
+      matricula: 3,
       nome: 'Jack Beagle',
       email: 'joaospezia14@gmail.com',
-      cadastro: false,
+      cadastro: true,
       cursos: [
-        'Java ', 'JS'
+        'Java ', 'JS',"Alcoolismo"
+      ]
+    },
+    {
+      foto:"../../../assets/img/anamaria.jpg",
+      codigo: 3124,
+      matricula: 3,
+      nome: 'Anamaria',
+      email: 'anamaria@gmail.com',
+      cadastro: true,
+      cursos: [
+        'JS ', 'HTML'
       ]
     }
   ]
