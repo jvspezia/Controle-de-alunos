@@ -4,14 +4,14 @@
 
 
 <main>
-  <section class="cards">
+  <section class="cards" *ngIf="exibicao == 'cards'">
 
     <app-aluno [aluno]="listaAlunos[0]"></app-aluno>
     <app-aluno [aluno]="listaAlunos[1]"></app-aluno>
     <app-aluno [aluno]="listaAlunos[2]"></app-aluno>
   </section>
   
-  <section class="tabela">
+  <section class="tabela"  *ngIf="exibicao == 'lista'">
     <app-lista-aluno [lista]="listaAlunos" ></app-lista-aluno>
   </section>
   

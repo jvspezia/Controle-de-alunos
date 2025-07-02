@@ -8,6 +8,14 @@ import { AlunoInterface } from './interfaces/AlunoInterface';
   styleUrl: './app.css'
 })
 export class App {
+
+  //seleciona se quer exibir os cards ou a tabela
+    exibicao: string = 'cards'
+ // exibicao: string = 'lista'
+
+//--------------------------------------------------//
+
+
   protected title = 'controle-de-alunos';
   
   listaAlunos: AlunoInterface[] = [
@@ -45,5 +53,4 @@ export class App {
       ]
     }
   ]
-  
 }
