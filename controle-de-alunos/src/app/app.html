@@ -1,23 +1,29 @@
 <header>
   <h1>Sistema Alunos Proway</h1>
 </header>
+<div class="botoes">
+  <button (click)="alterarExibicao()">
+    Mostar {{exibicao == 'cards' ? 'Lista':'cards'}}
+  </button>
 
+  <button (click)="cadastrados()">Exibir Cadastrados</button>
 
+</div>
 <main>
-  <section class="cards" *ngIf="exibicao == 'cards'">
-
-    <app-aluno [aluno]="listaAlunos[0]"></app-aluno>
-    <app-aluno [aluno]="listaAlunos[1]"></app-aluno>
-    <app-aluno [aluno]="listaAlunos[2]"></app-aluno>
+  <section class="cards" *ngIf="exibicao == 'cards'"> 
+    <app-aluno *ngFor="let alunoContador of listaAlunos"[aluno]="alunoContador"></app-aluno>
   </section>
   
   <section class="tabela"  *ngIf="exibicao == 'lista'">
     <app-lista-aluno [lista]="listaAlunos" ></app-lista-aluno>
   </section>
   
+<section *ngIf="exibicao == 'aprovados'">
+  <app-aluno *ngFor="let alunoContador of listaAlunos"[aluno]="alunoContador"></app-aluno>
+</section>
 </main>
 >
 
-<footer>
+<footer >
   <h2>Desenvolvido por João Vitor Spezia</h2>
 </footer>
