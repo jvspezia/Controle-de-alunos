@@ -10,7 +10,8 @@ import { ListaAluno } from './componentes/lista-aluno/lista-aluno';
   declarations: [
     App,
     Aluno,
-    ListaAluno
+    ListaAluno,
+  
   ],
   imports: [
     BrowserModule,

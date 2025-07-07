@@ -7,6 +7,7 @@
         <th>Email</th>
         <th>Cursos </th>
         <th>Cadastro </th>
+        <th>Notas </th>
       </tr>
     
       <tr *ngFor="let aluno of lista">
@@ -15,6 +16,7 @@
         <td>{{aluno.email}}</td>
         <td>{{aluno.cursos}}</td>
         <td>{{aluno.cadastro == true ? 'Cadastrado' : 'Não cadastrado'}}</td>
+        <td>{{aluno.notas}}</td>
       </tr>
      
      

@@ -10,10 +10,17 @@ import { AlunoInterface } from './interfaces/AlunoInterface';
 
 
 export class App {
+  aprovados: string = ''
+  //aprovados: string = 'cards aprovados'
+  // aprovados: string = 'lista aprovados'
+
+
+
 
   //seleciona se quer exibir os cards ou a tabela
-  exibicao: string = 'cards'
-  //exibicao: string = 'lista'
+
+  //exibicao: string = 'cards'
+  exibicao: string = 'lista'
 
   //--------------------------------------------------//
 
@@ -30,7 +37,8 @@ export class App {
       cadastro: false,
       cursos: [
         'Java ', 'JS'
-      ]
+      ],
+      notas: [14]
     },
     {
       foto: "../../../assets/img/Jack.jpg",
@@ -41,7 +49,8 @@ export class App {
       cadastro: true,
       cursos: [
         'Java ', 'JS', "Alcoolismo"
-      ]
+      ],
+      notas: [14]
     },
     {
       foto: "../../../assets/img/anamaria.jpg",
@@ -52,43 +61,57 @@ export class App {
       cadastro: true,
       cursos: [
         'JS ', 'HTML'
-      ]
+      ],
+      notas: [14]
     },
     {
       foto: "../../../assets/img/bolsonarainha.jpg",
       codigo: 3124,
       matricula: 3,
-      nome: 'Anamaria',
-      email: 'anamaria@gmail.com',
+      nome: 'Bolsonaria',
+      email: 'mitadetudo@gmail.com',
       cadastro: true,
       cursos: [
         'JS ', 'HTML'
-      ]
+      ],
+      notas: [14]
     }
   ]
 
   alterarExibicao(): void {
-    //Implementar a regra da função
 
-    if (this.exibicao == "cards") {
+    //Implementar a regra da função
+    
+    if (this.exibicao == "cards" || this.aprovados == "cards aprovados") {
+      this.aprovados = ''
       
-       this.exibicao = "lista"
+      this.exibicao = "lista"
       
     }
-    else if (this.exibicao == "lista") {
-      
-        this.exibicao= "cards"
-      
+    else if (this.exibicao == "lista" ||  this.aprovados == "lista aprovados") {
+      this.aprovados = ''
+
+      this.exibicao = "cards"
+
     }
   }
 
-cadastrados(): void{
+  cadastrados(): void {
 
-  for(let aluno of this.listaAlunos)
+    if (this.exibicao == "cards") {
 
-if(aluno.cadastro == true){
+      this.aprovados = "cards aprovados"
+      this.exibicao = ""
+    }
+    else if (this.exibicao == "lista") {
+      
+      this.aprovados = "lista aprovados"
+      this.exibicao = ""
+
+    }
+
+  }
+  
 
 
-}
-}
 }

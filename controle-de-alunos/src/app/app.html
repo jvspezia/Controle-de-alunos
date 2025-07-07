@@ -3,27 +3,36 @@
 </header>
 <div class="botoes">
   <button (click)="alterarExibicao()">
-    Mostar {{exibicao == 'cards' ? 'Lista':'cards'}}
+    Mostar {{exibicao == 'cards' || aprovados =="cards aprovados" ? 'Lista':'cards'}}
   </button>
 
   <button (click)="cadastrados()">Exibir Cadastrados</button>
 
 </div>
 <main>
-  <section class="cards" *ngIf="exibicao == 'cards'"> 
-    <app-aluno *ngFor="let alunoContador of listaAlunos"[aluno]="alunoContador"></app-aluno>
+  <section class="cards" *ngIf="exibicao == 'cards'">
+    <app-aluno *ngFor="let alunoContador of listaAlunos" [aluno]="alunoContador"></app-aluno>
   </section>
-  
-  <section class="tabela"  *ngIf="exibicao == 'lista'">
-    <app-lista-aluno [lista]="listaAlunos" ></app-lista-aluno>
-  </section>
-  
-<section *ngIf="exibicao == 'aprovados'">
-  <app-aluno *ngFor="let alunoContador of listaAlunos"[aluno]="alunoContador"></app-aluno>
-</section>
-</main>
->
 
-<footer >
+  <section class="tabela" *ngIf="exibicao == 'lista'">
+    <app-lista-aluno [lista]="listaAlunos"></app-lista-aluno>
+  </section>
+
+  <section class="cards" *ngIf="aprovados == 'cards aprovados'">
+    <ng-container *ngFor="let alunoContador of listaAlunos">
+      <app-aluno *ngIf="alunoContador.cadastro" [aluno]="alunoContador"></app-aluno>
+    </ng-container>
+  </section>
+
+  <section class="tabela" *ngIf="aprovados == 'lista aprovados'">
+    <ng-container *ngFor="let alunoContador of listaAlunos">
+    
+    <app-lista-aluno *ngIf="alunoContador.cadastro" [lista]="listaAlunos"></app-lista-aluno>
+  </ng-container>
+  </section>
+</main>
+
+
+<footer>
   <h2>Desenvolvido por João Vitor Spezia</h2>
 </footer>
