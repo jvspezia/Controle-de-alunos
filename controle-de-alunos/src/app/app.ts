@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AlunoInterface } from './interfaces/AlunoInterface';
+import { ListaAluno } from './componentes/lista-aluno/lista-aluno';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,6 @@ export class App {
   aprovados: string = ''
   //aprovados: string = 'cards aprovados'
   // aprovados: string = 'lista aprovados'
-
-
-
 
   //seleciona se quer exibir os cards ou a tabela
 
@@ -38,7 +36,7 @@ export class App {
       cursos: [
         'Java ', 'JS'
       ],
-      notas: [14]
+      notas: [1,10,4]
     },
     {
       foto: "../../../assets/img/Jack.jpg",
@@ -50,7 +48,7 @@ export class App {
       cursos: [
         'Java ', 'JS', "Alcoolismo"
       ],
-      notas: [14]
+      notas: [6,7,9]
     },
     {
       foto: "../../../assets/img/anamaria.jpg",
@@ -62,7 +60,8 @@ export class App {
       cursos: [
         'JS ', 'HTML'
       ],
-      notas: [14]
+      notas: [9,5,4],
+   
     },
     {
       foto: "../../../assets/img/bolsonarainha.jpg",
@@ -74,44 +73,96 @@ export class App {
       cursos: [
         'JS ', 'HTML'
       ],
-      notas: [14]
-    }
+      notas: [9,7,4],
+    
+    },
   ]
 
+
+
+
+
+
+
+  listaCadastrados: AlunoInterface[]= [];
+
+  
   alterarExibicao(): void {
 
     //Implementar a regra da função
     
     if (this.exibicao == "cards" || this.aprovados == "cards aprovados") {
       this.aprovados = ''
-      
-      this.exibicao = "lista"
-      
+      this.exibicao = "lista" 
     }
     else if (this.exibicao == "lista" ||  this.aprovados == "lista aprovados") {
       this.aprovados = ''
-
       this.exibicao = "cards"
-
     }
   }
 
   cadastrados(): void {
 
-    if (this.exibicao == "cards") {
+this.listaCadastrados=[]
 
-      this.aprovados = "cards aprovados"
-      this.exibicao = ""
+  this.listaAlunos.forEach(aluno =>{
+    if(aluno.cadastro == true){
+      this.listaCadastrados.push(aluno)
     }
-    else if (this.exibicao == "lista") {
-      
-      this.aprovados = "lista aprovados"
-      this.exibicao = ""
-
-    }
-
+  })
   }
-  
 
+Naocadastrados():void{
+
+  this.listaCadastrados=[]
+
+  this.listaCadastrados = this.listaAlunos.filter(aluno=>{
+    return aluno.cadastro == false
+  })
+}
+
+exibirtodos(): void{
+  this.listaCadastrados= this.listaAlunos;
+  
+}
+
+
+
+
+
+
+filtrarAlunos(filtro:string):void{
+if(filtro == 'aprovados'){
+  this.listaCadastrados = this.listaAlunos.filter(aluno => {return aluno.cadastro==true})
+}else if (filtro == 'reprovados'){
+  this.listaCadastrados = this.listaAlunos.filter(aluno => {return aluno.cadastro==false})
+}else if(filtro== "todos"){
+  this.listaCadastrados=this.listaAlunos
+}
 
 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if (this.exibicao == "cards") {
+
+  // this.aprovados = "cards aprovados"
+  // this.exibicao = ""
+// }
+// else if (this.exibicao == "lista") {
+   
+  //this.aprovados = "lista aprovados"
+ //  this.exibicao = ""
+
+ 

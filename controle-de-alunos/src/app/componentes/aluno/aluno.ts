@@ -12,6 +12,10 @@ export class Aluno {
   @Input()
   aluno!: AlunoInterface 
 
+ngOnInit():void{
+      
+}
+
 }
 
 

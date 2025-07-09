@@ -4,13 +4,13 @@ header{
   text-align: center;
   color: white;
 }
+
+
 footer{
   background-color: rgb(4, 0, 63);
   text-align: center;
   color: white;
-
-  
- 
+   
 }
 .cards{
   display: flex;
@@ -31,7 +31,7 @@ main{
   display: flex;
 }
 
-.botoes{
+.botoes div{
   margin: 30px;
   display: flex;
   justify-content: end;

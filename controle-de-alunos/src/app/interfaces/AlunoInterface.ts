@@ -7,5 +7,5 @@ export interface AlunoInterface{
   cadastro:boolean
   cursos:string[]
   notas:number[]
-  
+
 }
