@@ -3,7 +3,6 @@
 </header>
 <div class="botoes">
   <div>
-
     <button (click)="alterarExibicao()">
       Mostar {{exibicao == 'cards' || aprovados =="cards aprovados" ? 'Lista':'cards'}}
     </button>
@@ -26,12 +25,13 @@
 
   <!--Cards -->
   <section class="cards" *ngIf="exibicao == 'cards'">
-    <app-aluno *ngFor="let alunoContador of listaCadastrados" [aluno]="alunoContador"></app-aluno>
+    <app-aluno *ngFor="let alunoContador of listaFiltro" [aluno]="alunoContador"></app-aluno>
   </section>
 
   <!--lista-->
   <section class="tabela" *ngIf="exibicao == 'lista'">
-    <app-lista-aluno [lista]="listaCadastrados"></app-lista-aluno>
+    <app-lista-aluno [lista]="listaFiltro"
+    (excluir)="onExcluir($event)"></app-lista-aluno>
   </section>
   
   

@@ -8,6 +8,8 @@
         <th>Cursos </th>
         <th>Cadastro </th>
         <th>Notas </th>
+        <th>Opções </th>
+
       </tr>
     
       <tr *ngFor="let aluno of lista">
@@ -17,8 +19,13 @@
         <td>{{aluno.cursos}}</td>
         <td>{{aluno.cadastro == true ? 'Cadastrado' : 'Não cadastrado'}}</td>
         <td>{{aluno.notas}}</td>
+        
+        
+        <td>
+          <button class="btn BotaoEdit">Editar</button>
+          <button class="btn BotaoExcluir" (click)="excluirAluno(aluno.matricula)">Excluir</button>
+        </td>
       </tr>
-     
      
   </table>
 </div>

@@ -1,30 +1,33 @@
 import { Component } from '@angular/core';
 import { AlunoInterface } from './interfaces/AlunoInterface';
 import { ListaAluno } from './componentes/lista-aluno/lista-aluno';
+import { Aluno } from './componentes/aluno/aluno';
+import { popNumber } from 'rxjs/internal/util/args';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: false,
   styleUrl: './app.css'
-})
+}
+)
 
 
 export class App {
   aprovados: string = ''
   //aprovados: string = 'cards aprovados'
   // aprovados: string = 'lista aprovados'
-
   //seleciona se quer exibir os cards ou a tabela
-
   //exibicao: string = 'cards'
-  exibicao: string = 'lista'
+    exibicao: string = 'lista'
 
   //--------------------------------------------------//
+ngOnInit():void{
+  this.listaFiltro= this.listaAlunos;
+}
 
 
   protected title = 'controle-de-alunos';
-
   listaAlunos: AlunoInterface[] = [
     {
       foto: "../../../assets/img/Reiner_Braun_29_character_image_29.jpg",
@@ -53,7 +56,7 @@ export class App {
     {
       foto: "../../../assets/img/anamaria.jpg",
       codigo: 3124,
-      matricula: 3,
+      matricula: 2,
       nome: 'Anamaria',
       email: 'anamaria@gmail.com',
       cadastro: true,
@@ -65,8 +68,8 @@ export class App {
     },
     {
       foto: "../../../assets/img/bolsonarainha.jpg",
-      codigo: 3124,
-      matricula: 3,
+      codigo: 3524,
+      matricula: 36,
       nome: 'Bolsonaria',
       email: 'mitadetudo@gmail.com',
       cadastro: true,
@@ -76,15 +79,23 @@ export class App {
       notas: [9,7,4],
     
     },
+    {
+      foto: "../../../assets/img/RenatoMoicano.webp",
+      codigo: 7114,
+      matricula: 53,
+      nome: 'Renato Moicano',
+      email: 'esquecatudo@gmail.com',
+      cadastro: false,
+      cursos: [
+        'MMA', 'Bet'
+      ],
+      notas: [0,-3,4],
+    
+    },
   ]
 
 
-
-
-
-
-
-  listaCadastrados: AlunoInterface[]= [];
+  listaFiltro: AlunoInterface[]= [];
 
   
   alterarExibicao(): void {
@@ -103,43 +114,54 @@ export class App {
 
   cadastrados(): void {
 
-this.listaCadastrados=[]
+this.listaFiltro
+=[]
 
   this.listaAlunos.forEach(aluno =>{
     if(aluno.cadastro == true){
-      this.listaCadastrados.push(aluno)
+      this.listaFiltro
+      .push(aluno)
     }
   })
   }
 
 Naocadastrados():void{
 
-  this.listaCadastrados=[]
+  this.listaFiltro
+  =[]
 
-  this.listaCadastrados = this.listaAlunos.filter(aluno=>{
+  this.listaFiltro
+   = this.listaAlunos.filter(aluno=>{
     return aluno.cadastro == false
   })
 }
 
 exibirtodos(): void{
-  this.listaCadastrados= this.listaAlunos;
+  this.listaFiltro= this.listaAlunos;
   
 }
 
 
-
-
-
-
 filtrarAlunos(filtro:string):void{
 if(filtro == 'aprovados'){
-  this.listaCadastrados = this.listaAlunos.filter(aluno => {return aluno.cadastro==true})
+  this.listaFiltro = this.listaAlunos.filter(aluno => {return aluno.cadastro==true})
 }else if (filtro == 'reprovados'){
-  this.listaCadastrados = this.listaAlunos.filter(aluno => {return aluno.cadastro==false})
+  this.listaFiltro = this.listaAlunos.filter(aluno => {return aluno.cadastro==false})
 }else if(filtro== "todos"){
-  this.listaCadastrados=this.listaAlunos
+  this.listaFiltro=this.listaAlunos
 }
 
+}
+
+onExcluir(matricula:number): void{
+  
+   this.listaAlunos.forEach((aluno, index) => {
+    if(aluno.matricula == matricula){
+      this.listaAlunos.splice(index,1)
+
+    }
+    
+   });
 }
 }
 
